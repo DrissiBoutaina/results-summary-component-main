@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+      
+      :root{
+        --ff : 'Hanken Grotesk', sans-serif;
+        --fs-500 : 500;
+        --fs-700 : 700;
+        --fs-800 : 800;
+      }
+      .b-radius{
+        border-radius: 25px;
+      }
+      .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+      }
+      .container{
+        display: flex;
+        align-items: center;
+        font-family: var(--ff);
+      }
+      .container1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        border: 1px solid #d5e1ef;
+        background: linear-gradient(hsl(252, 100%, 67%),hsl(241, 81%, 54%));
+        color: hsl(0, 0%, 100%);
+      
+      }
+      #result{
+        color: hsla(0, 0%, 100%, 0.50);
+        font-size: 16px;
+        font-weight:var(--fs-500);
+        margin-block-end: 1.2em;
+      }
+      .circle{
+        display: flex;
+        flex-direction: column;
+        width: 100px; 
+        height: 100px;
+        border-radius: 50%; 
+        border: 0.5px solid hsl(252, 95%, 60%); 
+        text-align: center; 
+        justify-content: center; 
+        align-items: center; 
+        background: linear-gradient(hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
+        color: hsla(0, 0%, 100%, 0.50);
+        font-size: 10px;
+      }
+      #style1{
+        display: block;
+        font-size: 5em;
+        font-weight:var(--fs-800);
+        color: white;
+        text-align: center;
+        justify-content: center;
+      align-items: center;
+      }
+      h2{
+        font-size: 18px;
+        font-weight:var(--fs-500);
+        margin-block-start: 1.2em;
+        margin-block-end: 0.10em;
+      }
+      p{
+        color: hsla(0, 0%, 100%, 0.50);
+        font-size: 10px;
+        margin-block-end: 1.5em;
+      }
+      .container2{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        width:170px;
+        padding: 0px 20px 0px 20px ;
+        margin: 0%;
+      }
+      #summary{
+    
+        font-size: 17px;
+        font-weight:var(--fs-800);
+        margin-block-start: 0.0em;
+        margin-block-end: 0.3em;
+      }
+      .box{
+        display: flex;
+        border: 1px solid white;
+        font-size: 12px;
+        font-weight:var(--fs-700);
+        text-align: justify;
+        border-radius: 8px;
+        height: 2.5em;
+        align-items: center;
+      }
+      img{
+        width: 1.3em;
+        height: 1.3em;
+        padding-left: 0.5em;
+      }
+      .one{
+        color: hsl(0, 100%, 67%);
+        background-color: hsl(0, 100%, 67%,0.15);
+      }
+      .two{
+        color:hsl(39, 100%, 56%) ;
+        background-color: hsl(39, 100%, 56%,0.15);
+      }
+      .three{
+        color: hsl(166, 100%, 37%);
+        background-color: hsl(166, 100%, 37%,0.15);
+      }
+      .four{
+        color: hsl(234, 85%, 45%);
+        background-color: hsl(234, 85%, 45%,0.15);
+      }
+      button{
+        color: white;
+        background: linear-gradient(hsl(252, 100%, 67%),hsl(241, 81%, 54%));
+        font-size: 10px;
+        border: 1px solid white;
+        padding: 0.9em 0em 0.9em 0em;
+        margin-top: 0.9em;
+        cursor: pointer;
+      }
+      #clique:active{
+        background: linear-gradient(hsl(224, 30%, 27%),hsl(224, 30%, 27%));
+      }
+      #category{
+        width: 3em;
+        padding-left: 0.6em;
+        margin-right: 4em;
+      }
+      #score{
+        color: hsl(224, 30%, 27%);
+        font-size: 12px;
+        font-weight:var(--fs-800);
+        /* padding-left: 2em; */
+      }
+      #cent{
+        color:  hsl(224, 30%, 27%, 0.5);
+        font-size: 12px;
+        padding-left: 0.5em;
+        padding-right: 0.em;
+      }
+      @media screen and (max-width: 375px) {
+        /* Styles à appliquer pour les écrans de 375px de largeur ou moins */
+        body{
+          margin: 0px;
+        }
+        .wrapper{
+          margin: 0px;
+          padding: 0px;
+        }
+        .container {
+          flex-direction: column;
+          height:100vh;
+          width: 100vw;
+          border-radius: 0px;
+          padding: 0px;
+        }
+        .container1{
+          border-bottom-left-radius: 25px;
+          border-bottom-right-radius: 25px;
+        }
+        
+        #result{
+          margin-block-start: 1.5em;
+        }
+        h2{
+          font-size: 22px;
+          font-weight:var(--fs-700);
+          margin-block-end: 0em;
+        }
+        p{
+          font-size: 15px;
+          padding: 0px 50px 0px 50px;
+          margin-block-start: 0.4em;
+          margin-block-end: 2.5em;
+        }
+        .container2{
+          text-align: left;
+          width: 18em;
+          gap: 1em;
+        }
+        #summary{
+          margin-block-start: 1.3em;
+          margin-block-end: 0.8em;
+          text-align: left;
+        }
+        .box{
+          height: 4em;
+        }
+        img{
+          width: 1.8em;
+          height: 1.8em;
+        }
+        #category {
+          width: 3em;
+          margin-right: 9.5em;
+          font-size: 1.2em;
+        }
+        #score{
+          font-size: 1.2em;
+        }
+        #cent{
+          font-size: 1.2em;
+        }
+        button{
+          height: 3.2em;
+          font-size: 1em;
+          font-weight: var(--fs-700);
+          background: linear-gradient(hsl(224, 30%, 27%),hsl(224, 30%, 27%));
+        }
+      }
+      @media screen and (min-width: 400px) {
+        
+        .container {  
+          box-shadow: 4px 4px 15px hsl(242, 100%, 92%);
+        }
+        .container1{
+          padding: 15px 30px 15px 30px ;
+          border-radius: 25px;
+          width:140px;
+        }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container b-radius">
+      <div class="container1">
+        <h1 id="result">Your Result</h1>
+        <div class="circle"><span id="style1">76 </span>of 100</div>
+        <h2>Great</h2>
+        <p>You scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+      <div class="container2">
+        <h1 id="summary"> Summary</h1>
+        <div class="box one">
+          <img src="./assets/images/icon-reaction.svg" alt="Icone de reaction">
+          <span id="category">Reaction</span>
+          <span id="score">80</span>
+          <span id="cent"> / 100</span>
+        </div>
+        <div class="box two">
+          <img src="./assets/images/icon-memory.svg" alt="Icone de memory">
+          <span id="category">Memory</span>
+          <span id="score">92</span>
+          <span id="cent"> / 100</span>
+        </div>
+        <div class="box three">
+          <img src="./assets/images/icon-verbal.svg" alt="Icone de verbal">
+          <span id="category">Verbal</span>
+          <span id="score">61</span>
+          <span id="cent"> / 100</span>
+        </div>
+        <div class="box four">
+          <img src="./assets/images/icon-visual.svg" alt="Icone de visual">
+          <span id="category">Visual</span>
+          <span id="score">71</span>
+          <span id="cent"> / 100</span>
+        </div>
+        <button class="b-radius" id="clique">Continue</button>
+      </div>
+    </div>
+  </div> 
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Drissi boutaina</a>.
+  </div>
+</body>
+</html>
+<script>
+  const boxes = document.querySelectorAll('.box');
+  const data = [];
+
+  boxes.forEach((box) => {
+    const category = box.querySelector('#category').textContent;
+    const score = box.querySelector('#score').textContent;
+    const icon = box.querySelector('img').getAttribute('src');
+
+    data.push({
+      category,
+      score,
+      icon
+    });
+  });
+
+  const button = document.querySelector('#clique');
+  button.addEventListener('click', () => {
+    const maListeEnJSON = JSON.stringify(data);
+    const blob = new Blob([maListeEnJSON], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = 'data.json';
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
